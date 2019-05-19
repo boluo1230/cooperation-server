@@ -10,6 +10,8 @@ public interface TeamDao {
 
     List<Team> getTeamList();
 
+    List<Team> getTeamByTeamIds(List<String> teamIds);
+
     int saveTeam(Team team);
 
 }

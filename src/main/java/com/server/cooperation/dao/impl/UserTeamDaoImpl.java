@@ -1,7 +1,8 @@
 package com.server.cooperation.dao.impl;
 
-import com.server.cooperation.dao.UserGroupDao;
-import com.server.cooperation.entity.mongo.UserGroup;
+import com.server.cooperation.dao.UserTeamDao;
+import com.server.cooperation.entity.mongo.UserTeam;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -11,15 +12,15 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class UserGroupDaoImpl implements UserGroupDao {
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+public class UserTeamDaoImpl implements UserTeamDao {
 
-    @Autowired
-    private MongoTemplate mongoTemplate;
+    private final MongoTemplate mongoTemplate;
 
     @Override
-    public List<UserGroup> getUserGroupByUserId(String userId, String teamId) {
+    public List<UserTeam> getUserTeamList(String userId) {
         Query query = new Query();
         query.addCriteria(Criteria.where("userId").is(userId));
-        return mongoTemplate.find(query, UserGroup.class);
+        return mongoTemplate.find(query, UserTeam.class);
     }
 }

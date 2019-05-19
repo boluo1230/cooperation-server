@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface UserGroupService {
 
-    List<Group> getGroupListByUserId(String userId);
+    List<Group> getGroupListByUserId(String userId, String teamId);
 
 }

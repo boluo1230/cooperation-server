@@ -25,6 +25,12 @@ public class TeamDaoImpl implements TeamDao {
         return mongoTemplate.find(query, Team.class);
     }
 
+    //Todo
+    @Override
+    public List<Team> getTeamByTeamIds(List<String> teamIds) {
+        return null;
+    }
+
     @Override
     public int saveTeam(Team team) {
         Query query = new Query().addCriteria(Criteria.where("_id").is(team.getId()));

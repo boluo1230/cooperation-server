@@ -20,9 +20,10 @@ public class UserGroupServiceImpl implements UserGroupService {
     private UserGroupDao userGroupDao;
 
     @Override
-    public List<Group> getGroupListByUserId(String userId) {
-        List<UserGroup> userGroupList = userGroupDao.getUserGroupByUserId(userId);
+    public List<Group> getGroupListByUserId(String userId, String teamId) {
+        List<UserGroup> userGroupList = userGroupDao.getUserGroupByUserId(userId, teamId);
         List<String> groupIds = userGroupList.stream().map(UserGroup::getGroupId).collect(Collectors.toList());
         return groupDao.getGroupByIds(groupIds);
     }
+
 }
