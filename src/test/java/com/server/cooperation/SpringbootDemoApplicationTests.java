@@ -1,4 +1,4 @@
-package com.kingsoft.wps.edu.teacher;
+package com.server.cooperation;
 
 import com.server.cooperation.CooperationApplication;
 import org.junit.Test;
